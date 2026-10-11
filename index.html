@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>Naresh App</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      margin: 0;
+      padding: 25px;
+      background: #111827;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .card {
+      margin: 60px auto;
+      max-width: 350px;
+      padding: 25px;
+      background: #263248;
+      border-radius: 20px;
+    }
+    button {
+      padding: 14px 22px;
+      border: 0;
+      border-radius: 12px;
+      background: #818cf8;
+      font-size: 17px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🚀 Naresh App</h1>
+    <p>मेरा पहला खुद का App!</p>
+    <button onclick="showMessage()">यहाँ दबाओ</button>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("message").textContent =
+        "🎉 भाई, तुम्हारा App काम कर रहा है!";
+    }
+
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./sw.js")
+        .catch(console.error);
+    }
+  </script>
+</body>
+</html>
